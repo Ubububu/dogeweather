@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="desc_color">#33D6FF</color>
+    <color name="temp_color">#30FFD6</color>
+</resources>
