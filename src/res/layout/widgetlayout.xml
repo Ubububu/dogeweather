@@ -13,7 +13,11 @@
         android:textAlignment="center"
         android:text="@string/app_name"
         android:textColor="@color/temp_color"
-        android:textAppearance="@android:style/TextAppearance.Medium"/>
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="1.2"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,12 +29,17 @@
         android:textAlignment="center"
         android:text="@string/app_name"
         android:textColor="@color/desc_color"
-        android:textAppearance="@android:style/TextAppearance.Large"/>
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="1.2"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/wowtext"
+        android:layout_centerHorizontal="true"
         android:id="@+id/veryimage"
         android:src="@drawable/d01d"
         android:contentDescription="@string/app_name"/>

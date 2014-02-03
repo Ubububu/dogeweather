@@ -66,7 +66,7 @@ public class veryService extends Service {
 
                     tempc = jsonObj.getJSONObject("main").getDouble("temp");
                     temp = String.valueOf(Math.round(tempc));
-                    temp += "°C\t\t";
+                    temp += "°C\t";
                     temp += String.valueOf(Math.round(tempc * 9 / 5 + 32));
                     temp += "°F";
 
@@ -75,7 +75,7 @@ public class veryService extends Service {
                 }
 
                 views.setTextViewText(R.id.wowtext, desc);
-                views.setTextViewText(R.id.suchtext, temp);
+                views.setTextViewText(R.id.suchtext, loc+": "+temp);
                 try {
                     views.setImageViewResource(R.id.veryimage, R.drawable.class.getField("d"+icon).getInt(null));
                 } catch (Exception e) {
