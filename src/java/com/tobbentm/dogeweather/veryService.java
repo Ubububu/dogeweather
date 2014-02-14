@@ -3,7 +3,6 @@ package com.tobbentm.dogeweather;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -12,7 +11,8 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import com.loopj.android.http.*;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +28,6 @@ public class veryService extends Service {
     public int onStartCommand (Intent intent, int flags, int startId) {
         final AppWidgetManager widgetMgr = AppWidgetManager.getInstance(this.getApplicationContext());
         final int[] allWidgets = intent.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
-        final ComponentName thisWidget = new ComponentName(getApplicationContext(), suchprovider.class);
 
         LocationManager locMgr = (LocationManager)getApplicationContext().getSystemService(LOCATION_SERVICE);
         List<String> providers = locMgr.getProviders(true);
