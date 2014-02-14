@@ -1,9 +1,11 @@
 package com.tobbentm.dogeweather;
 
+import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.IBinder;
@@ -46,6 +48,15 @@ public class veryService extends Service {
         String url = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon=" + lon + "&units=metric";
 
         final RemoteViews views = new RemoteViews(this.getApplicationContext().getPackageName(), R.layout.widgetlayout);
+        try {
+            getPackageManager().getPackageInfo("com.versobit.weatherdoge", PackageManager.GET_ACTIVITIES);
+            // If we get this far, the package exists
+            Intent i = new Intent();
+            i.setClassName("com.versobit.weatherdoge", "com.versobit.weatherdoge.MainActivity");
+            views.setOnClickPendingIntent(R.id.veryimage, PendingIntent.getActivity(this, 0, i, 0));
+        } catch (Exception ex) {
+            //
+        }
         AsyncHttpClient cli = new AsyncHttpClient();
 
         cli.get(url, new AsyncHttpResponseHandler(){
