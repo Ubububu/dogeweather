@@ -2,7 +2,12 @@
 <resources>
 
     <string name="app_name">dogeweather</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="config_title">Choose your location:</string>
+    <string name="config_auto">Automatic</string>
+    <string name="condig_auto_desc">(Using your approx. gps location)</string>
+    <string name="config_manual">Search</string>
+    <string name="config_hint">City (ex: Oslo, NO)</string>
+    <string name="dialog_title">Results</string>
+    <string name="dialog_error">No results, try again</string>
 
 </resources>

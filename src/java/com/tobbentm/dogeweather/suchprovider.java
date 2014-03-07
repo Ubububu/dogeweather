@@ -5,7 +5,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.RemoteViews;
 
 /**
  * Created by Tobias on 28.01.14.
@@ -21,5 +20,4 @@ public class suchprovider extends AppWidgetProvider {
         intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, allWidgets);
         context.startService(intent);
     }
-
 }

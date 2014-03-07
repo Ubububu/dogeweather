@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/config_title"
+        android:gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        android:id="@+id/much_title"
+        android:textAppearance="@android:style/TextAppearance.Large"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/d01d"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp"
+        android:contentDescription="@string/app_name"
+        android:layout_above="@id/much_title"
+        android:id="@+id/such_image"/>
+
+    <View android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:id="@+id/div1"
+        android:layout_below="@id/much_title"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/much_title"
+        android:layout_toLeftOf="@id/div1"
+        android:id="@+id/very_button"
+        android:text="@string/config_auto"
+        android:onClick="btnAuto"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/very_button"
+        android:layout_toLeftOf="@id/div1"
+        android:text="@string/condig_auto_desc"
+        android:paddingTop="5dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/really_input"
+        android:layout_below="@id/much_title"
+        android:layout_toRightOf="@id/div1"
+        android:hint="@string/config_hint"
+        android:singleLine="true"
+        android:imeOptions="actionSearch"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/really_input"
+        android:layout_toRightOf="@id/div1"
+        android:id="@+id/plz_button"
+        android:text="@string/config_manual"
+        android:onClick="btnManual"/>
+
+</RelativeLayout>

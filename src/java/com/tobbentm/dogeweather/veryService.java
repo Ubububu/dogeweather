@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
@@ -29,22 +30,30 @@ public class veryService extends Service {
         final AppWidgetManager widgetMgr = AppWidgetManager.getInstance(this.getApplicationContext());
         final int[] allWidgets = intent.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
 
-        LocationManager locMgr = (LocationManager)getApplicationContext().getSystemService(LOCATION_SERVICE);
-        List<String> providers = locMgr.getProviders(true);
-        Location l = null;
+        SharedPreferences sp = getSharedPreferences("so_conf", 0);
+        String city = sp.getString("loc", "auto");
+        String url;
 
-        Double lat = 59.913869, lon = 10.752245;
+        if(city.contains("auto")){
+            LocationManager locMgr = (LocationManager)getApplicationContext().getSystemService(LOCATION_SERVICE);
+            List<String> providers = locMgr.getProviders(true);
+            Location l = null;
 
-        for(int i = providers.size()-1; i>=0; i--){
-            l = locMgr.getLastKnownLocation(providers.get(i));
-            if(l != null){
-                lat = l.getLatitude();
-                lon = l.getLongitude();
-                break;
+            Double lat = 59.913869, lon = 10.752245;
+
+            for(int i = providers.size()-1; i>=0; i--){
+                l = locMgr.getLastKnownLocation(providers.get(i));
+                if(l != null){
+                    lat = l.getLatitude();
+                    lon = l.getLongitude();
+                    break;
+                }
             }
-        }
 
-        String url = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon=" + lon + "&units=metric";
+            url = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon=" + lon + "&units=metric";
+        }else{
+            url = "http://api.openweathermap.org/data/2.5/weather?id=" + city + "&units=metric";
+        }
 
         final RemoteViews views = new RemoteViews(this.getApplicationContext().getPackageName(), R.layout.widgetlayout);
         try {
