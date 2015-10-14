@@ -7,6 +7,6 @@
     android:previewImage="@drawable/ic_launcher"
     android:initialLayout="@layout/widgetlayout"
     android:resizeMode="horizontal|vertical"
-    android:configure="com.tobbentm.dogeweather.muchConfig"
+    android:configure="ru.ubububu.dogeweather.muchConfig"
     android:widgetCategory="home_screen" >
 </appwidget-provider>
